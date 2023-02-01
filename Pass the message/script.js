@@ -2,6 +2,7 @@ let textInput = document.getElementById("text-entered");
 let btn = document.getElementById("btn");
 let messagePassed = document.getElementById("message-passed");
 let validValue = document.getElementsByClassName("valid-value")[0]
+let refresh = document.getElementById("refresh")
 
 validValue.style.display = "none"
 
@@ -25,7 +26,6 @@ function checkIfInputIsEmpty(){
       validValue.style.display = "block"
 
       // checked if input is empty , if it's , it prompts the user to enter a valid one
-  
        }
    
   }
@@ -35,6 +35,22 @@ function checkIfInputIsEmpty(){
  
   // timed the warning message to show for only 2 seconds
 }
+
+refresh.addEventListener("click", () =>{
+ if(textInput.value !== ""){
+  textInput.value = "";
+  refresh.style.transform = "rotate(-90deg)";
+  refresh.style.transition = "all .6s";
+ }
+})
+
+
+refresh.addEventListener("mouseleave", () =>{
+  refresh.style.transform = "rotate(90deg)";
+  refresh.style.transition = "all .6s";
+})
+
+
 
 
 
